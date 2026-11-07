@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#FF65C4; --brand-deep:#B3186F; --brand-mid:#E93DA6; --aqua:#5DE2E7;
+    --tint-pink:#FFEBF6; --tint-aqua:#E7FAFB; --tint-yellow:#FFF7D1; --yellow-line:#EDD98A;
+    --tint-peach:#FEF0E5; --peach-line:#E8965E;
+    --paper:#FFFFFF; --ink:#171416; --muted:#6E6870; --hairline:#F0DFEA;
+    --font-display:'Oswald', sans-serif; --font-body:'Poppins', sans-serif;
+  }
+  @page{ size:letter; margin:0; }
+  *{ box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html,body{ margin:0; padding:0; background:#fff; }
+  h1,h2,h3{ text-wrap:balance; } p{ text-wrap:pretty; }
+
+  .doc{ background:var(--paper); font-family:var(--font-body); color:var(--ink);
+    font-size:13.5px; line-height:1.5; width:8.5in; margin:0 auto; padding:0 0.62in; position:relative; }
+
+  /* running header/footer on each printed page (Nancy frame pattern) */
+  .doc-frame{ width:100%; border-collapse:collapse; table-layout:fixed; }
+  .doc-frame td{ padding:0; }
+  .hdr-space{ height:0.72in; } .ftr-space{ height:0.55in; }
+  .running-hdr,.running-ftr{ display:flex; justify-content:space-between; align-items:baseline; gap:24px;
+    position:fixed; left:0; right:0; font-family:var(--font-display); font-size:9px; font-weight:700;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--muted); }
+  .running-hdr span,.running-ftr span{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .running-hdr{ top:0; padding:0.28in 0.62in 0; }
+  .running-ftr{ bottom:0; padding:0 0.62in 0.26in; border-top:0; }
+  .keep{ break-inside:avoid; }
+  .shead{ break-inside:avoid; break-after:avoid; }
+  .dcell, .gl, .pr, .tile, .prose, .pline{ break-inside:avoid; }
+  p{ orphans:3; widows:3; }
+  .pagebreak{ break-before:page; }
+  /* never let a long/garbage value widen past the page */
+  .tile, .dcell, .gcol, .panel, .glance > div{ min-width:0; }
+  .tv, .dd, .gl span, .prose, .pline, .hname, .hprog, .pr{ overflow-wrap:break-word; word-break:break-word; }
+
+  /* masthead */
+  .mast{ display:flex; justify-content:space-between; align-items:flex-end; padding:4px 0 18px; }
+  .mlogo{ height:46px; width:auto; display:block; }
+  .wordmark{ font-family:var(--font-display); font-weight:700; font-size:21px; letter-spacing:-.01em; }
+  .wordmark em{ font-style:normal; color:var(--brand-deep); }
+  .lgnote{ font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-top:3px; font-family:var(--font-display); }
+  .mtitle{ text-align:right; font-family:var(--font-display); }
+  .mtitle b{ font-size:17px; font-weight:800; letter-spacing:.02em; }
+  .mtitle b i{ font-style:normal; color:var(--brand-deep); }
+  .msub{ font-size:8.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); margin-top:4px; }
+
+  /* hero */
+  .hero{ background:linear-gradient(135deg,var(--brand-deep),var(--brand-mid)); border-radius:14px; color:#fff;
+    padding:30px 34px 28px; display:flex; justify-content:space-between; align-items:center; }
+  .hkick{ font-family:var(--font-display); font-size:10px; letter-spacing:.3em; text-transform:uppercase; opacity:.75; }
+  .hname{ font-family:var(--font-display); font-weight:700; font-size:40px; line-height:1.05; letter-spacing:-.015em; margin:10px 0 12px; text-transform:uppercase; }
+  .hprog{ font-family:var(--font-display); font-size:11px; letter-spacing:.18em; text-transform:uppercase; opacity:.85; }
+  .hscore{ text-align:right; flex-shrink:0; padding-left:28px; }
+  .hscore .lab{ font-family:var(--font-display); font-size:9.5px; letter-spacing:.28em; text-transform:uppercase; opacity:.75; }
+  .hscore .big{ font-family:var(--font-display); font-weight:700; font-size:74px; line-height:1; letter-spacing:-.03em; }
+  .hscore .of{ font-size:22px; font-weight:600; opacity:.6; }
+
+  /* stat tiles */
+  .tiles{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:16px; }
+  .tile{ background:#fff; border:1px solid var(--hairline); border-top:3px solid var(--brand); border-radius:10px; padding:14px 16px 13px; }
+  .tile .tl{ font-family:var(--font-display); font-size:8.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+  .tile .tv{ font-family:var(--font-display); font-weight:700; font-size:27px; letter-spacing:-.02em; margin-top:6px; }
+  .tile .tv.sm{ font-size:14px; line-height:1.25; margin-top:8px; }
+  .tile .ts{ font-size:10.5px; color:var(--muted); margin-top:2px; }
+
+  /* sections */
+  .sec{ margin-top:24px; }
+  .sec.tight{ margin-top:16px; }
+  .shead{ display:flex; align-items:baseline; gap:12px; border-bottom:2px solid var(--ink); padding-bottom:6px; margin-bottom:9px; }
+  .snum{ font-family:var(--font-display); font-weight:700; font-size:21px; color:var(--brand-deep); }
+  .stit{ font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:.06em; text-transform:uppercase; }
+
+  /* glance */
+  .glance{ display:grid; grid-template-columns:1fr 1fr; gap:0 34px; }
+  .gh{ font-family:var(--font-display); font-size:9.5px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--brand-deep); margin:8px 0 6px; break-after:avoid; }
+  .gl{ padding:5px 0; border-bottom:1px dashed var(--hairline); font-size:13px; display:flex; gap:8px; align-items:baseline; }
+  .gl:last-child{ border-bottom:0; }
+  .gl .dot{ color:var(--brand); font-weight:700; }
+  .pr{ background:var(--tint-yellow); border:1px solid var(--yellow-line); border-radius:8px; padding:9px 12px; margin-top:8px; font-size:12.5px; }
+  .pr b{ font-family:var(--font-display); }
+  .sparse-note{ background:var(--tint-peach); border:1px dashed var(--peach-line); border-radius:8px; padding:10px 14px; font-size:12px; color:var(--muted); font-style:italic; margin-top:12px; break-inside:avoid; }
+
+  /* win + focus panels */
+  .panels{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .panel{ background:#fff; border:1px solid var(--hairline); border-radius:10px; padding:16px 18px; break-inside:avoid; }
+  .panel.acc{ background:var(--tint-pink); }
+  .panel.acc2{ background:var(--tint-aqua); }
+  .ph{ font-family:var(--font-display); font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--brand-deep); margin-bottom:8px; }
+  .prose{ font-size:13px; line-height:1.58; }
+
+  /* form-echo dl grid */
+  .dl{ display:grid; grid-template-columns:1fr 1fr; gap:0 34px; }
+  .dcell{ padding:5px 0 6px; border-bottom:1px solid var(--hairline); }
+  .dt{ font-family:var(--font-display); font-size:8.5px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--brand-deep); margin-bottom:3px; }
+  .dd{ font-size:13px; }
+  .dd.strong{ font-weight:600; }
+  .dd.na, .na{ color:var(--muted); }
+
+  /* dot scale */
+  .dots{ display:inline-flex; gap:4px; margin-top:5px; align-items:center; }
+  .dots i{ width:20px; height:7px; border-radius:3px; background:var(--hairline); display:inline-block; }
+  .dots i.on{ background:var(--brand); }
+  .dnum{ font-family:var(--font-display); font-weight:700; font-size:13px; margin-left:6px; }
+
+  /* 07 method */
+  .meth{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:8px; }
+  .mcard{ border:1px solid var(--hairline); border-radius:10px; padding:11px 13px; break-inside:avoid; min-width:0; }
+  .mh{ display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+  .mh .mt{ font-family:var(--font-display); font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--brand-deep); }
+  .mh .mw{ font-family:var(--font-display); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); white-space:nowrap; }
+  .mrule{ font-size:10.5px; line-height:1.45; color:var(--muted); margin:5px 0 6px; }
+  .mrow{ display:grid; grid-template-columns:minmax(0,1fr) auto auto; gap:8px; align-items:baseline; font-size:11px; padding:2px 0; border-bottom:1px dashed var(--hairline); }
+  .mrow .md{ white-space:nowrap; color:var(--muted); }
+  .mrow:last-of-type{ border-bottom:0; }
+  .mrow .mn{ min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .mrow .mv{ font-family:var(--font-display); font-weight:600; white-space:nowrap; }
+  .mrow .mv.dim, .mn.dim{ color:var(--muted); font-weight:400; }
+  .msum{ margin-top:6px; padding-top:6px; border-top:1px solid var(--hairline); font-size:11px; }
+  .msum b{ font-family:var(--font-display); }
+  .mnote{ font-size:10.5px; line-height:1.45; color:var(--muted); margin-top:5px; }
+  .mmath{ font-family:var(--font-display); font-size:12px; line-height:1.6; }
+  .mmath b{ font-size:15px; }
+
+  /* protocol */
+  .proto{ background:linear-gradient(135deg,var(--brand-deep),var(--brand-mid)); border-radius:12px; color:#fff;
+    padding:14px 20px; margin-top:16px; break-inside:avoid; }
+  .proto .ph2{ font-family:var(--font-display); font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; opacity:.8; margin-bottom:7px; }
+  .proto .pline{ font-size:12px; line-height:1.55; padding:2px 0; }
+  .proto .pline b{ font-family:var(--font-display); }
+
+  /* footer block (end of content) */
+  .endfoot{ margin-top:26px; border-top:1px solid var(--hairline); padding-top:12px; display:flex;
+    justify-content:space-between; align-items:center; font-family:var(--font-display); font-size:9px;
+    font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); }
+  .endfoot img{ height:30px; width:auto; display:block; }
+</style></head>
+<body>
+<main class="doc">
+  <div class="running-hdr"><span>Alex Example · Weekly Check-In</span><span>1:1 Coaching · Oct 14–20</span></div>
+  <div class="running-ftr"><span>Fit with Vic · Weekly Check-In</span><span>Confidential</span></div>
+
+  <table class="doc-frame" role="presentation">
+    <thead><tr><td class="hdr-space"></td></tr></thead>
+    <tbody><tr><td>
+
+      <div class="mast keep">
+        <img class="mlogo" src="data:image/png;base64,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" alt="Fit with Vic">
+        <div class="mtitle">
+          <b>FIT WITH VIC <i>REPORT</i></b>
+          <div class="msub">Weekly Progress · Coaching Review</div>
+        </div>
+      </div>
+
+      <header class="hero keep">
+        <div style="min-width:0">
+          <div class="hkick">Weekly Check-In</div>
+          <div class="hname">Alex Example</div>
+          <div class="hprog">1:1 Coaching · October 14 – 20, 2026</div>
+        </div>
+        <div class="hscore">
+          <div class="lab">Overall Wellness Score</div>
+          <div class="big">84<span class="of">/100</span></div>
+        </div>
+      </header>
+
+      <section class="tiles keep">
+        <div class="tile"><div class="tl">Nutrition Score</div><div class="tv">88</div><div class="ts">avg daily adherence</div></div>
+        <div class="tile"><div class="tl">Training Score</div><div class="tv">78</div><div class="ts">3 of 4 sessions</div></div>
+        <div class="tile"><div class="tl">Latest Weight</div><div class="tv">148.2</div><div class="ts">check-in morning (Tue) · down 0.8 from last week</div></div>
+        <div class="tile"><div class="tl">Current Goal</div><div class="tv sm">Recomp — hold weight, build strength</div><div class="ts">&#8203;</div></div>
+      </section>
+
+      <section class="sec">
+        <div class="shead"><span class="snum">01</span><span class="stit">This Week at a Glance</span></div>
+        <div class="glance">
+          <div class="gcol">
+            <div class="gh">Training &amp; Cardio</div>
+            <div class="gl"><span class="dot">&#9679;</span><span>Resistance: <b>3 of 4</b> sessions completed</span></div><div class="gl"><span class="dot">&#9679;</span><span>Prescribed cardio: <b>2 of 2</b> sessions done</span></div><div class="gl"><span class="dot">&#9679;</span><span>+ 1 session you added yourself (walk)</span></div>
+            <div class="pr"><b>&#127942; New personal record:</b> Goblet squat <b>55 lbs × 10</b> (was 50 × 10), Thursday</div>
+          </div>
+          <div class="gcol">
+            <div class="gh">Movement &amp; Scale</div>
+            <div class="gl"><span class="dot">&#9679;</span><span>Steps: avg <b>8,420</b>/day · best Thu 11,200</span></div><div class="gl"><span class="dot">&#9679;</span><span>Weight: <b>149.0 → 148.2</b> · down 0.8</span></div><div class="gl"><span class="dot">&#9679;</span><span>Weight: <b>148.2</b> on your check-in morning (Tue) · down 0.8 from last week's weigh-in</span></div><div class="gl"><span class="dot">&#9679;</span><span>Nutrition trend: <b>82 → 88</b>, trending up</span></div>
+          </div>
+        </div>
+        
+      </section>
+
+      <section class="sec">
+        <div class="shead"><span class="snum">02</span><span class="stit">Win of the Week &amp; Focus</span></div>
+        <div class="panels">
+          <div class="panel acc">
+            <div class="ph">Your Win</div>
+            <div class="prose">You hit your protein target on 5 of 7 days and still found room for a Friday night out without blowing the week — that balance is the win.</div>
+          </div>
+          <div class="panel acc2">
+            <div class="ph">Focus for This Week</div>
+            <div class="prose">Lock in the fourth resistance session earlier in the week so Sunday isn’t the make-up day.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="shead"><span class="snum">03</span><span class="stit">Training — Your Check-In</span></div>
+        <div class="dl">
+          <div class="dcell"><div class="dt">Resistance Sessions (self-reported)</div><div class="dd strong">3</div></div>
+          <div class="dcell"><div class="dt">Cardio Sessions (self-reported)</div><div class="dd strong">2</div></div>
+          <div class="dcell"><div class="dt">Cardio HR + Length (your report)</div><div class="dd strong">132 bpm · 25–30 min</div></div>
+          <div class="dcell"><div class="dt">Deload Week</div><div class="dd">No</div></div>
+          <div class="dcell"><div class="dt">Workout Modifications</div><div class="dd">Swapped barbell RDL for DB RDL — low back felt tight Wednesday</div></div>
+          <div class="dcell"><div class="dt">New Injuries / Pains</div><div class="dd">Mild left knee ache after lunges; settled overnight</div></div>
+        </div>
+      </section>
+
+      <section class="sec tight">
+        <div class="shead"><span class="snum">04</span><span class="stit">Nutrition — Your Check-In</span></div>
+        <div class="dl">
+          <div class="dcell"><div class="dt">Your Adherence Estimate</div><div class="dd strong">80–90%</div></div>
+          <div class="dcell"><div class="dt">Hunger</div><div class="dd"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><span class="dnum">6/10</span></span></div></div>
+          <div class="dcell"><div class="dt">Untracked Food</div><div class="dd">One untracked coffee-shop muffin Thursday</div></div>
+          <div class="dcell"><div class="dt">Alcohol</div><div class="dd">2 drinks Friday</div></div>
+          <div class="dcell"><div class="dt">Meal Plan Update Requested</div><div class="dd">Yes — want a higher-carb training-day option</div></div>
+          <div class="dcell"><div class="dt">Last Refeed Day</div><div class="dd">Saturday</div></div>
+        </div>
+      </section>
+
+      <section class="sec tight">
+        <div class="shead"><span class="snum">05</span><span class="stit">Recovery &amp; Lifestyle</span></div>
+        <div class="dl">
+          <div class="dcell"><div class="dt">Sleep (avg / night)</div><div class="dd strong">7.2 h</div></div>
+          <div class="dcell"><div class="dt">Energy This Week</div><div class="dd strong">Good most days; flat Wednesday</div></div>
+          <div class="dcell"><div class="dt">Menstrual Cycle</div><div class="dd">Follicular</div></div>
+          <div class="dcell"><div class="dt">Avg Daily Steps (your report)</div><div class="dd">8,500</div></div>
+          
+          <div class="dcell"><div class="dt">Clothes Fit</div><div class="dd">Jeans looser at the waist</div></div>
+          <div class="dcell"><div class="dt">Week Rating</div><div class="dd"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><span class="dnum">8/10</span></span></div></div>
+        </div>
+      </section>
+
+      <section class="sec tight">
+        <div class="shead"><span class="snum">06</span><span class="stit">Reflection</span></div>
+        <div class="dl">
+          <div class="dcell"><div class="dt">Biggest Win (your words)</div><div class="dd">Stayed consistent with steps even on travel day</div></div>
+          <div class="dcell"><div class="dt">Biggest Challenge</div><div class="dd">Evening snacking after late meetings</div></div>
+          <div class="dcell"><div class="dt">Support Needed</div><div class="dd">Ideas for high-protein snacks under 5 minutes</div></div>
+          <div class="dcell"><div class="dt">How Can Vic Support You</div><div class="dd">Quick check on knee-friendly leg volume</div></div>
+          <div class="dcell"><div class="dt">Other Comments</div><div class="dd">Feeling strong overall</div></div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="shead"><span class="snum">07</span><span class="stit">How Your Scores Are Calculated</span></div>
+        <div class="meth">
+          <div class="mcard">
+            <div class="mh"><span class="mt">Nutrition</span><span class="mw">60% of overall</span></div>
+            <div class="mrule">Each day is scored on how many of your macro targets you landed within range (the larger of 10 g or 15% of the goal, over or under). A day with nothing logged scores 0. The week is the average.</div>
+            <div class="mrow"><span class="mn">Tue 14</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Wed 15</span><span class="md">2 of 3 macros</span><span class="mv">67%</span></div><div class="mrow"><span class="mn">Thu 16</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Fri 17</span><span class="md">2 of 3 macros</span><span class="mv">67%</span></div><div class="mrow"><span class="mn dim">Sat 18</span><span class="md">nothing logged</span><span class="mv dim">0%</span></div><div class="mrow"><span class="mn">Sun 19</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Mon 20</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="msum">Average of 6 days <b style="float:right">88%</b></div><div class="mnote">1 refeed day left out of the average.</div>
+          </div>
+          <div class="mcard">
+            <div class="mh"><span class="mt">Training</span><span class="mw">40% of overall</span></div>
+            <div class="mrule">Each scheduled session earns credit for the sets logged. A session with no app log shows as not tracked: if you did it, your check-in count is what we use.</div>
+            <div class="mrow"><span class="mn">Lower A</span><span class="md">18 of 20 sets</span><span class="mv">0.90</span></div><div class="mrow"><span class="mn">Upper A</span><span class="md">16 of 16 sets</span><span class="mv">1.00</span></div><div class="mrow"><span class="mn dim">Lower B</span><span class="md">not tracked</span><span class="mv dim">0.00</span></div><div class="mrow"><span class="mn">Upper B</span><span class="md">14 of 16 sets</span><span class="mv">0.88</span></div><div class="msum">3.10 credit &divide; 4 scheduled <b style="float:right">78%</b></div>
+          </div>
+          <div class="mcard">
+            <div class="mh"><span class="mt">Overall</span><span class="mw">weighted</span></div>
+            <div class="mrule">Nutrition is weighted heavier because it drives the result. Cardio, steps, sleep and weight are tracked and reported, but they do not move the number.</div>
+            <div class="mmath">Nutrition 88% &times; 60% = 52.8<br>Training 78% &times; 40% = 31.2<br><b>84%</b> overall</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="proto">
+        <div class="ph2">Protocol for next week</div>
+        <div class="pline">Protein target stays <b>140 g</b></div><div class="pline">Keep Lower B, swap walking lunges → step-ups</div><div class="pline">Cardio: 2× Zone 2, 25–30 min</div><div class="pline">Bed by 10:30 on training nights</div>
+      </section>
+
+      <footer class="endfoot">
+        <img src="data:image/png;base64,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" alt="Fit with Vic">
+        <span>Confidential</span>
+      </footer>
+
+    </td></tr></tbody>
+    <tfoot><tr><td class="ftr-space"></td></tr></tfoot>
+  </table>
+</main>
+</body></html>
