@@ -86,7 +86,9 @@
   .pr b{ font-family:var(--font-display); }
   .sparse-note{ background:var(--tint-peach); border:1px dashed var(--peach-line); border-radius:8px; padding:10px 14px; font-size:12px; color:var(--muted); font-style:italic; margin-top:12px; break-inside:avoid; }
 
-  /* win + focus panels */
+  /* PRESERVE for later — Win/Focus card backgrounds (old section 02)
+   * .panel.acc  → tint-pink #FFEBF6
+   * .panel.acc2 → tint-aqua #E7FAFB */
   .panels{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   .panel{ background:#fff; border:1px solid var(--hairline); border-radius:10px; padding:16px 18px; break-inside:avoid; }
   .panel.acc{ background:var(--tint-pink); }
@@ -94,7 +96,7 @@
   .ph{ font-family:var(--font-display); font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--brand-deep); margin-bottom:8px; }
   .prose{ font-size:13px; line-height:1.58; }
 
-  /* form-echo dl grid */
+  /* form-echo dl grid (sections 03–06 removed from layout; keep helpers) */
   .dl{ display:grid; grid-template-columns:1fr 1fr; gap:0 34px; }
   .dcell{ padding:5px 0 6px; border-bottom:1px solid var(--hairline); }
   .dt{ font-family:var(--font-display); font-size:8.5px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--brand-deep); margin-bottom:3px; }
@@ -102,7 +104,7 @@
   .dd.strong{ font-weight:600; }
   .dd.na, .na{ color:var(--muted); }
 
-  /* dot scale */
+  /* PRESERVE — Week Rating progress bar style (old section 05). Same .dots / .dots i.on pattern. */
   .dots{ display:inline-flex; gap:4px; margin-top:5px; align-items:center; }
   .dots i{ width:20px; height:7px; border-radius:3px; background:var(--hairline); display:inline-block; }
   .dots i.on{ background:var(--brand); }
@@ -110,7 +112,25 @@
 
   /* 07 method */
   .meth{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:8px; }
+  .meth.meth-v2{ grid-template-columns:1fr 1fr; }
   .mcard{ border:1px solid var(--hairline); border-radius:10px; padding:11px 13px; break-inside:avoid; min-width:0; }
+  .mcard.span2{ grid-column:1 / -1; }
+
+  /* 08 Fitness Fun Facts */
+  .ff-block{ margin-top:4px; }
+  .ff-sub{ font-family:var(--font-display); font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--brand-deep); margin:4px 0 10px; }
+  .ff-card{ display:grid; grid-template-columns:148px 1fr; gap:18px; align-items:center; border:1px solid var(--hairline); border-radius:12px; padding:14px 16px; background:linear-gradient(180deg, var(--tint-aqua), #fff 55%); break-inside:avoid; }
+  .ff-img{ width:148px; height:148px; object-fit:cover; border-radius:10px; display:block; background:#fff; }
+  .ff-img-ph{ width:148px; height:148px; border-radius:10px; background:var(--tint-pink); border:1px dashed var(--brand-mid); display:flex; align-items:center; justify-content:center; text-align:center; padding:8px; }
+  .ff-img-ph span{ font-family:var(--font-display); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--brand-deep); }
+  .ff-liters{ font-family:var(--font-display); font-size:28px; font-weight:700; letter-spacing:-.02em; line-height:1; margin-bottom:4px; }
+  .ff-liters b{ color:var(--brand-deep); }
+  .ff-meta{ font-size:11px; color:var(--muted); margin-bottom:8px; letter-spacing:.04em; }
+  .ff-headline{ font-size:14.5px; line-height:1.55; }
+  .ff-preview-bar{ display:flex; flex-wrap:wrap; gap:6px; margin:0 0 10px; }
+  .ff-preview-bar a{ font-family:var(--font-display); font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; color:var(--brand-deep); border:1px solid var(--hairline); background:#fff; border-radius:999px; padding:5px 10px; }
+  .ff-preview-bar a:hover,.ff-preview-bar a.is-active{ background:var(--tint-pink); border-color:var(--brand-mid); }
+  .fiber-note{ background:var(--tint-peach); border:1px dashed var(--peach-line); border-radius:8px; padding:10px 12px; font-size:12px; line-height:1.5; color:var(--ink); margin-top:8px; }
   .mh{ display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
   .mh .mt{ font-family:var(--font-display); font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--brand-deep); }
   .mh .mw{ font-family:var(--font-display); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); white-space:nowrap; }
@@ -165,12 +185,12 @@
         </div>
         <div class="hscore">
           <div class="lab">Overall Wellness Score</div>
-          <div class="big">84<span class="of">/100</span></div>
+          <div class="big">79<span class="of">/100</span></div>
         </div>
       </header>
 
       <section class="tiles keep">
-        <div class="tile"><div class="tl">Nutrition Score</div><div class="tv">88</div><div class="ts">avg daily adherence</div></div>
+        <div class="tile"><div class="tl">Nutrition Score</div><div class="tv">78</div><div class="ts">after −5 for untracked food, −5 for alcohol</div></div>
         <div class="tile"><div class="tl">Training Score</div><div class="tv">78</div><div class="ts">3 of 4 sessions</div></div>
         <div class="tile"><div class="tl">Latest Weight</div><div class="tv">148.2</div><div class="ts">check-in morning (Tue) · down 0.8 from last week</div></div>
         <div class="tile"><div class="tl">Current Goal</div><div class="tv sm">Recomp — hold weight, build strength</div><div class="ts">&#8203;</div></div>
@@ -182,7 +202,6 @@
           <div class="gcol">
             <div class="gh">Training &amp; Cardio</div>
             <div class="gl"><span class="dot">&#9679;</span><span>Resistance: <b>3 of 4</b> sessions completed</span></div><div class="gl"><span class="dot">&#9679;</span><span>Prescribed cardio: <b>2 of 2</b> sessions done</span></div><div class="gl"><span class="dot">&#9679;</span><span>+ 1 session you added yourself (walk)</span></div>
-            <div class="pr"><b>&#127942; New personal record:</b> Goblet squat <b>55 lbs × 10</b> (was 50 × 10), Thursday</div>
           </div>
           <div class="gcol">
             <div class="gh">Movement &amp; Scale</div>
@@ -193,84 +212,52 @@
       </section>
 
       <section class="sec">
-        <div class="shead"><span class="snum">02</span><span class="stit">Win of the Week &amp; Focus</span></div>
-        <div class="panels">
-          <div class="panel acc">
-            <div class="ph">Your Win</div>
-            <div class="prose">You hit your protein target on 5 of 7 days and still found room for a Friday night out without blowing the week — that balance is the win.</div>
-          </div>
-          <div class="panel acc2">
-            <div class="ph">Focus for This Week</div>
-            <div class="prose">Lock in the fourth resistance session earlier in the week so Sunday isn’t the make-up day.</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="sec">
-        <div class="shead"><span class="snum">03</span><span class="stit">Training — Your Check-In</span></div>
-        <div class="dl">
-          <div class="dcell"><div class="dt">Resistance Sessions (self-reported)</div><div class="dd strong">3</div></div>
-          <div class="dcell"><div class="dt">Cardio Sessions (self-reported)</div><div class="dd strong">2</div></div>
-          <div class="dcell"><div class="dt">Cardio HR + Length (your report)</div><div class="dd strong">132 bpm · 25–30 min</div></div>
-          <div class="dcell"><div class="dt">Deload Week</div><div class="dd">No</div></div>
-          <div class="dcell"><div class="dt">Workout Modifications</div><div class="dd">Swapped barbell RDL for DB RDL — low back felt tight Wednesday</div></div>
-          <div class="dcell"><div class="dt">New Injuries / Pains</div><div class="dd">Mild left knee ache after lunges; settled overnight</div></div>
-        </div>
-      </section>
-
-      <section class="sec tight">
-        <div class="shead"><span class="snum">04</span><span class="stit">Nutrition — Your Check-In</span></div>
-        <div class="dl">
-          <div class="dcell"><div class="dt">Your Adherence Estimate</div><div class="dd strong">80–90%</div></div>
-          <div class="dcell"><div class="dt">Hunger</div><div class="dd"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><span class="dnum">6/10</span></span></div></div>
-          <div class="dcell"><div class="dt">Untracked Food</div><div class="dd">One untracked coffee-shop muffin Thursday</div></div>
-          <div class="dcell"><div class="dt">Alcohol</div><div class="dd">2 drinks Friday</div></div>
-          <div class="dcell"><div class="dt">Meal Plan Update Requested</div><div class="dd">Yes — want a higher-carb training-day option</div></div>
-          <div class="dcell"><div class="dt">Last Refeed Day</div><div class="dd">Saturday</div></div>
-        </div>
-      </section>
-
-      <section class="sec tight">
-        <div class="shead"><span class="snum">05</span><span class="stit">Recovery &amp; Lifestyle</span></div>
-        <div class="dl">
-          <div class="dcell"><div class="dt">Sleep (avg / night)</div><div class="dd strong">7.2 h</div></div>
-          <div class="dcell"><div class="dt">Energy This Week</div><div class="dd strong">Good most days; flat Wednesday</div></div>
-          <div class="dcell"><div class="dt">Menstrual Cycle</div><div class="dd">Follicular</div></div>
-          <div class="dcell"><div class="dt">Avg Daily Steps (your report)</div><div class="dd">8,500</div></div>
-          
-          <div class="dcell"><div class="dt">Clothes Fit</div><div class="dd">Jeans looser at the waist</div></div>
-          <div class="dcell"><div class="dt">Week Rating</div><div class="dd"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><span class="dnum">8/10</span></span></div></div>
-        </div>
-      </section>
-
-      <section class="sec tight">
-        <div class="shead"><span class="snum">06</span><span class="stit">Reflection</span></div>
-        <div class="dl">
-          <div class="dcell"><div class="dt">Biggest Win (your words)</div><div class="dd">Stayed consistent with steps even on travel day</div></div>
-          <div class="dcell"><div class="dt">Biggest Challenge</div><div class="dd">Evening snacking after late meetings</div></div>
-          <div class="dcell"><div class="dt">Support Needed</div><div class="dd">Ideas for high-protein snacks under 5 minutes</div></div>
-          <div class="dcell"><div class="dt">How Can Vic Support You</div><div class="dd">Quick check on knee-friendly leg volume</div></div>
-          <div class="dcell"><div class="dt">Other Comments</div><div class="dd">Feeling strong overall</div></div>
-        </div>
-      </section>
-
-      <section class="sec">
         <div class="shead"><span class="snum">07</span><span class="stit">How Your Scores Are Calculated</span></div>
-        <div class="meth">
+        <div class="meth meth-v2">
           <div class="mcard">
             <div class="mh"><span class="mt">Nutrition</span><span class="mw">60% of overall</span></div>
-            <div class="mrule">Each day is scored on how many of your macro targets you landed within range (the larger of 10 g or 15% of the goal, over or under). A day with nothing logged scores 0. The week is the average.</div>
-            <div class="mrow"><span class="mn">Tue 14</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Wed 15</span><span class="md">2 of 3 macros</span><span class="mv">67%</span></div><div class="mrow"><span class="mn">Thu 16</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Fri 17</span><span class="md">2 of 3 macros</span><span class="mv">67%</span></div><div class="mrow"><span class="mn dim">Sat 18</span><span class="md">nothing logged</span><span class="mv dim">0%</span></div><div class="mrow"><span class="mn">Sun 19</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Mon 20</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="msum">Average of 6 days <b style="float:right">88%</b></div><div class="mnote">1 refeed day left out of the average.</div>
+            <div class="mrule">Each day is scored on how many of your macro targets you landed within range (the larger of 10 g or 15% of the goal, over or under). A day with nothing logged scores 0. The week is the average. Untracked food or alcohol each take 5 points off this score.</div>
+            <div class="mrow"><span class="mn">Tue 14</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Wed 15</span><span class="md">2 of 3 macros</span><span class="mv">67%</span></div><div class="mrow"><span class="mn">Thu 16</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Fri 17</span><span class="md">2 of 3 macros</span><span class="mv">67%</span></div><div class="mrow"><span class="mn dim">Sat 18</span><span class="md">nothing logged</span><span class="mv dim">0%</span></div><div class="mrow"><span class="mn">Sun 19</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Mon 20</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="msum">Average of 6 days <b style="float:right">78%</b></div><div class="mnote">1 refeed day left out of the average. Adjustments: −5 for untracked food; −5 for alcohol.</div><div class="fiber-note">Your average fiber intake is too low. We want to aim for 20-30grams per day to ensure proper digestion :) you can add in foods like all-bran buds, raspberries, avocado, chia seeds and more!</div>
           </div>
           <div class="mcard">
-            <div class="mh"><span class="mt">Training</span><span class="mw">40% of overall</span></div>
+            <div class="mh"><span class="mt">Training</span><span class="mw">30% of overall</span></div>
             <div class="mrule">Each scheduled session earns credit for the sets logged. A session with no app log shows as not tracked: if you did it, your check-in count is what we use.</div>
             <div class="mrow"><span class="mn">Lower A</span><span class="md">18 of 20 sets</span><span class="mv">0.90</span></div><div class="mrow"><span class="mn">Upper A</span><span class="md">16 of 16 sets</span><span class="mv">1.00</span></div><div class="mrow"><span class="mn dim">Lower B</span><span class="md">not tracked</span><span class="mv dim">0.00</span></div><div class="mrow"><span class="mn">Upper B</span><span class="md">14 of 16 sets</span><span class="mv">0.88</span></div><div class="msum">3.10 credit &divide; 4 scheduled <b style="float:right">78%</b></div>
+            <div class="pr"><b>&#127942; New personal record:</b> Goblet squat <b>55 lbs × 10</b> (was 50 × 10), Thursday</div>
+            
           </div>
           <div class="mcard">
-            <div class="mh"><span class="mt">Overall</span><span class="mw">weighted</span></div>
-            <div class="mrule">Nutrition is weighted heavier because it drives the result. Cardio, steps, sleep and weight are tracked and reported, but they do not move the number.</div>
-            <div class="mmath">Nutrition 88% &times; 60% = 52.8<br>Training 78% &times; 40% = 31.2<br><b>84%</b> overall</div>
+            <div class="mh"><span class="mt">Steps</span><span class="mw">5% of overall</span></div>
+            <div class="mrule">Your average daily steps versus your step goal for the week.</div>
+            <div class="mrow"><span class="mn">Daily average</span><span class="md">vs 10000 goal</span><span class="mv">8420</span></div>
+       <div class="msum">Steps vs goal <b style="float:right">84%</b></div>
+          </div>
+          <div class="mcard">
+            <div class="mh"><span class="mt">Sleep</span><span class="mw">5% of overall</span></div>
+            <div class="mrule">Your average hours of sleep versus your sleep goal for the week.</div>
+            <div class="mrow"><span class="mn">Avg / night</span><span class="md">vs 8 h goal</span><span class="mv">7.2 h</span></div>
+       <div class="msum">Sleep vs goal <b style="float:right">90%</b></div>
+          </div>
+          <div class="mcard span2">
+            <div class="mh"><span class="mt">Overall Wellness</span><span class="mw">weighted</span></div>
+            <div class="mrule">Nutrition drives most of the score; workouts, steps and sleep fill in the rest.</div>
+            <div class="mmath">Nutrition 78% &times; 60% = 46.8<br>Workouts 78% &times; 30% = 23.4<br>Steps 84% &times; 5% = 4.2<br>Sleep 90% &times; 5% = 4.5<br><b>79%</b> overall</div><div class="mnote">Weights: Nutrition 60% · Workouts 30% · Steps 5% · Sleep 5%.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" id="ff-water-section">
+        <div class="shead"><span class="snum">08</span><span class="stit">Fitness Fun Facts (Lifetime Stats)</span></div>
+        <div class="ff-block">
+          <div class="ff-sub">Overall Water Intake</div>
+          <div class="ff-preview-bar" id="ff-water-preview-bar"><span style="font-family:var(--font-display);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:6px;align-self:center">Preview</span><a href="?water=10l" data-water="10l">10L · bucket</a><a href="?water=30l" data-water="30l">30L · fish-tank</a><a href="?water=50l" data-water="50l">50L · washing-cycle</a><a href="?water=70l" data-water="70l">70L · shower-9min</a></div>
+          <div class="ff-card">
+            <img class="ff-img" id="ff-water-img" src="assets/water/shower.png" alt="Approx. one 9 minute shower!" onerror="this.style.display='none';this.nextElementSibling&&(this.nextElementSibling.style.display='flex')"><div class="ff-img-ph" id="ff-water-ph" style="display:none" aria-hidden="true"><span id="ff-water-ph-label">shower-9min</span></div>
+            <div class="ff-copy">
+              <div class="ff-liters" id="ff-water-liters"><b id="ff-water-liters-n">70</b> litres</div>
+              <div class="ff-meta" id="ff-water-meta">Since 2025-03-12 · SHRED</div>
+              <div class="ff-headline" id="ff-water-headline">You've consumed 70 litres of water since joining the SHRED! That's approx. one 9 minute shower! Talk about staying hydrated!</div>
+            </div>
           </div>
         </div>
       </section>
@@ -289,4 +276,96 @@
     <tfoot><tr><td class="ftr-space"></td></tr></tfoot>
   </table>
 </main>
+
+<script id="water-preview-data" type="application/json">{"comparisons":[{"liters":10,"id":"bucket","label":"A large household bucket filled with water!","image":"water/bucket.png"},{"liters":30,"id":"fish-tank","label":"Amount of water in average large household fish tank!","image":"water/fish-tank.png"},{"liters":50,"id":"washing-cycle","label":"Approx. one washing machine cycle!","image":"water/washing-cycle.png"},{"liters":70,"id":"shower-9min","label":"Approx. one 9 minute shower!","image":"water/shower.png"},{"liters":90,"id":"bathtub-34","label":"¾ of a bathtub full!","image":"water/bathtub.png"},{"liters":110,"id":"kitchen-sinks","label":"Enough to fill 11 large kitchen sinks!","image":"water/kitchen-sinks.png"},{"liters":130,"id":"fridge","label":"The volume of a standard refrigerator!","image":"water/fridge.png"},{"liters":150,"id":"chest-freezer","label":"A large chest freezer’s approx. internal volume!","image":"water/chest-freezer.png"},{"liters":170,"id":"suitcase-laundry","label":"The combined volume of a large suitcase and a laundry basket","image":"water/suitcase-laundry.png"},{"liters":190,"id":"two-suitcases","label":"Approx. 2 large suitcases","image":"water/two-suitcases.png"},{"liters":210,"id":"suitcases-carryon","label":"Two large suitcases plus a carry-on","image":"water/suitcases-carryon.png"},{"liters":230,"id":"three-suitcases","label":"3 Large Suitcases","image":"water/three-suitcases.png"},{"liters":250,"id":"bathtub-microwave","label":"A large bathtub + microwave full","image":"water/bathtub-microwave.png"},{"liters":270,"id":"four-carryons","label":"Four large carry-ons","image":"water/four-carryons.png"},{"liters":290,"id":"washing-machine-ext","label":"External volume of large washing machine","image":"water/washing-machine.png"},{"liters":310,"id":"sofa-3seat","label":"Volume of large 3 seat sofa","image":"water/sofa.png"},{"liters":350,"id":"wardrobe","label":"Approximately the volume of a large freestanding wardrobe!","image":"water/wardrobe.png"},{"liters":370,"id":"piano","label":"Approximately the volume of a standard upright piano!","image":"water/piano.png"},{"liters":390,"id":"double-fridge","label":"Approximately the volume of a standard double-door refrigerator!","image":"water/double-fridge.png"},{"liters":410,"id":"washer-dryer","label":"Approximately the volume of a standard front-loading washing machine and dryer stacked together","image":"water/washer-dryer.png"},{"liters":430,"id":"garden-shed","label":"Approximately the volume of a large garden storage shed!","image":"water/garden-shed.png"},{"liters":450,"id":"three-door-wardrobe","label":"Approximately the volume of a standard three-door wardrobe!","image":"water/three-door-wardrobe.png"},{"liters":470,"id":"dining-set","label":"Approximately the volume of a large dining table with six chairs!","image":"water/dining-set.png"},{"liters":490,"id":"popcorn-machine","label":"Approximately the volume of a large commercial popcorn machine!","image":"water/popcorn-machine.png"},{"liters":510,"id":"hot-tub","label":"Approximately the volume of a large hot tub (small 2-person model)","image":"water/hot-tub.png"},{"liters":530,"id":"kayak","label":"Approximately the volume of a standard 2-person kayak!","image":"water/kayak.png"},{"liters":550,"id":"plunge-pool","label":"Approximately the volume of a small outdoor plunge pool!","image":"water/plunge-pool.png"},{"liters":570,"id":"ice-machine","label":"Approximately the volume of a large commercial ice machine!","image":"water/ice-machine.png"}],"availableImages":["bucket.png","fish-tank.png","shower.png","washing-cycle.png"],"programName":"SHRED","joinedOn":"2025-03-12"}</script>
+<script>
+(function () {
+  var dataEl = document.getElementById('water-preview-data');
+  if (!dataEl) return;
+  var DATA = JSON.parse(dataEl.textContent);
+  var COMP = DATA.comparisons || [];
+  var AVAIL = {};
+  (DATA.availableImages || []).forEach(function (f) { AVAIL[f.toLowerCase()] = true; });
+
+  function parseWaterParam(raw) {
+    if (raw == null || raw === '') return null;
+    var s = String(raw).trim().toLowerCase();
+    for (var i = 0; i < COMP.length; i++) {
+      var c = COMP[i];
+      if (c.id === s || c.image === 'water/' + s + '.png') return c.liters;
+    }
+    var m = s.match(/^(\d+(?:\.\d+)?)\s*(?:l|ltr|ltrs|litre|litres|liter|liters)?$/i);
+    return m ? Number(m[1]) : null;
+  }
+
+  function pick(liters) {
+    var n = Number(liters);
+    if (!isFinite(n) || n < 0) return null;
+    var best = COMP[0], bestDist = Math.abs(n - best.liters);
+    for (var i = 0; i < COMP.length; i++) {
+      var dist = Math.abs(n - COMP[i].liters);
+      if (dist < bestDist || (dist === bestDist && COMP[i].liters > best.liters)) {
+        best = COMP[i]; bestDist = dist;
+      }
+    }
+    return best;
+  }
+
+  function formatLiters(n) {
+    var rounded = Math.round(n * 10) / 10;
+    return Number.isInteger(rounded) ? String(rounded) : String(rounded);
+  }
+
+  function buildHeadline(liters, cmp) {
+    var program = DATA.programName || '';
+    var joinBit = program ? ' since joining the ' + program : ' since joining';
+    var comparison = String(cmp.label || '').replace(/\s+/g, ' ').trim();
+    comparison = comparison.charAt(0).toLowerCase() + comparison.slice(1);
+    if (!/[.!?]$/.test(comparison)) comparison += '.';
+    return "You've consumed " + formatLiters(liters) + " litres of water" + joinBit + "! That's " + comparison + " Talk about staying hydrated!";
+  }
+
+  function apply(liters) {
+    var cmp = pick(liters);
+    if (!cmp) return;
+    var file = (cmp.image || '').split('/').pop().toLowerCase();
+    var has = !!AVAIL[file];
+    var img = document.getElementById('ff-water-img');
+    var ph = document.getElementById('ff-water-ph');
+    var phLabel = document.getElementById('ff-water-ph-label');
+    var litersN = document.getElementById('ff-water-liters-n');
+    var headline = document.getElementById('ff-water-headline');
+    if (litersN) litersN.textContent = formatLiters(liters);
+    if (headline) headline.textContent = buildHeadline(liters, cmp);
+    if (has && img) {
+      img.style.display = '';
+      img.src = 'assets/' + cmp.image;
+      img.alt = cmp.label || cmp.id;
+      if (ph) ph.style.display = 'none';
+    } else {
+      if (img) img.style.display = 'none';
+      if (ph) ph.style.display = 'flex';
+      if (phLabel) phLabel.textContent = cmp.id;
+    }
+    var links = document.querySelectorAll('#ff-water-preview-bar a[data-water]');
+    links.forEach(function (a) {
+      var active = parseWaterParam(a.getAttribute('data-water')) === liters
+        || (pick(parseWaterParam(a.getAttribute('data-water'))) || {}).id === cmp.id;
+      a.classList.toggle('is-active', !!active);
+    });
+  }
+
+  var params = new URLSearchParams(location.search);
+  var raw = params.get('water');
+  var liters = parseWaterParam(raw);
+  if (liters != null) apply(liters);
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('#ff-water-preview-bar a[data-water]');
+    if (!a) return;
+    // allow normal navigation so URL updates / is shareable
+  });
+})();
+</script>
+
 </body></html>
