@@ -127,6 +127,7 @@
   .ff-liters b{ color:var(--brand-deep); }
   .ff-meta{ font-size:11px; color:var(--muted); margin-bottom:8px; letter-spacing:.04em; }
   .ff-headline{ font-size:14.5px; line-height:1.55; }
+  .ff-cmp{ font-weight:700; color:var(--brand-deep); }
   .ff-preview-bar{ display:flex; flex-wrap:wrap; gap:6px; margin:0 0 10px; }
   .ff-preview-bar a{ font-family:var(--font-display); font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; color:var(--brand-deep); border:1px solid var(--hairline); background:#fff; border-radius:999px; padding:5px 10px; }
   .ff-preview-bar a:hover,.ff-preview-bar a.is-active{ background:var(--tint-pink); border-color:var(--brand-mid); }
@@ -256,7 +257,7 @@
             <div class="ff-copy">
               <div class="ff-liters" id="ff-water-liters"><b id="ff-water-liters-n">70</b> litres</div>
               <div class="ff-meta" id="ff-water-meta">Since 2025-03-12 · SHRED</div>
-              <div class="ff-headline" id="ff-water-headline">You've consumed 70 litres of water since joining the SHRED! That's approx. one 9 minute shower! Talk about staying hydrated!</div>
+              <div class="ff-headline" id="ff-water-headline">You've consumed 70 litres of water since joining the SHRED! That's <b class="ff-cmp" id="ff-water-cmp">approx. one 9 minute shower!</b> Talk about staying hydrated!</div>
             </div>
           </div>
         </div>
@@ -316,13 +317,24 @@
     return Number.isInteger(rounded) ? String(rounded) : String(rounded);
   }
 
-  function buildHeadline(liters, cmp) {
-    var program = DATA.programName || '';
-    var joinBit = program ? ' since joining the ' + program : ' since joining';
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function comparisonPhrase(cmp) {
     var comparison = String(cmp.label || '').replace(/\s+/g, ' ').trim();
     comparison = comparison.charAt(0).toLowerCase() + comparison.slice(1);
     if (!/[.!?]$/.test(comparison)) comparison += '.';
-    return "You've consumed " + formatLiters(liters) + " litres of water" + joinBit + "! That's " + comparison + " Talk about staying hydrated!";
+    return comparison;
+  }
+
+  function buildHeadlineHtml(liters, cmp) {
+    var program = DATA.programName || '';
+    var joinBit = program ? ' since joining the ' + program : ' since joining';
+    var phrase = comparisonPhrase(cmp);
+    return "You've consumed " + formatLiters(liters) + " litres of water" + joinBit
+      + '! That\'s <b class="ff-cmp" id="ff-water-cmp">' + esc(phrase) + '</b> Talk about staying hydrated!';
   }
 
   function apply(liters) {
@@ -336,7 +348,7 @@
     var litersN = document.getElementById('ff-water-liters-n');
     var headline = document.getElementById('ff-water-headline');
     if (litersN) litersN.textContent = formatLiters(liters);
-    if (headline) headline.textContent = buildHeadline(liters, cmp);
+    if (headline) headline.innerHTML = buildHeadlineHtml(liters, cmp);
     if (has && img) {
       img.style.display = '';
       img.src = 'assets/' + cmp.image;
