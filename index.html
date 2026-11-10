@@ -121,7 +121,6 @@
   .ff-block:first-of-type{ margin-top:4px; }
   .ff-sub{ font-family:var(--font-display); font-size:14.3px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--brand-deep); margin:4px 0 10px; }
   .ff-card{ display:grid; grid-template-columns:148px 1fr; gap:18px; align-items:center; border:1px solid var(--hairline); border-radius:12px; padding:14px 16px; background:linear-gradient(180deg, var(--tint-aqua), #fff 55%); break-inside:avoid; }
-  .ff-card-text{ grid-template-columns:1fr; background:linear-gradient(180deg, var(--tint-pink), #fff 60%); }
   .ff-img{ width:148px; height:148px; object-fit:contain; object-position:center; border-radius:10px; display:block; background:transparent; }
   .ff-img-ph{ width:148px; height:148px; border-radius:10px; background:var(--tint-pink); border:1px dashed var(--brand-mid); display:flex; align-items:center; justify-content:center; text-align:center; padding:8px; }
   .ff-img-ph span{ font-family:var(--font-display); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--brand-deep); }
@@ -208,7 +207,7 @@
           </div>
           <div class="gcol">
             <div class="gh">Movement &amp; Scale</div>
-            <div class="gl"><span class="dot">&#9679;</span><span>Steps: avg <b>8,420</b>/day · best Thu 11,200</span></div><div class="gl"><span class="dot">&#9679;</span><span>Weight: <b>149 → 148.2</b> · down 0.8</span></div><div class="gl"><span class="dot">&#9679;</span><span>Weight: <b>148.2</b> on your check-in morning (Tuesday) · down 0.8 from last week's weigh-in</span></div><div class="gl"><span class="dot">&#9679;</span><span>vs last week: 149 → 148.2</span></div><div class="gl"><span class="dot">&#9679;</span><span>Nutrition trend: <b>82 → 88</b>, trending up</span></div>
+            <div class="gl"><span class="dot">&#9679;</span><span>Steps: avg <b>8,420</b>/day · best Thu 11,200</span></div><div class="gl"><span class="dot">&#9679;</span><span>Weight: <b>149.0 → 148.2</b> · down 0.8</span></div><div class="gl"><span class="dot">&#9679;</span><span>Weight: <b>148.2</b> on your check-in morning (Tue) · down 0.8 from last week's weigh-in</span></div><div class="gl"><span class="dot">&#9679;</span><span>Nutrition trend: <b>82 → 88</b>, trending up</span></div>
           </div>
         </div>
         
@@ -220,7 +219,7 @@
           <div class="mcard">
             <div class="mh"><span class="mt">Nutrition</span><span class="mw">60% of overall</span></div>
             <div class="mrule">Each day is scored on how many of your macro targets you landed within range (the larger of 10 g or 15% of the goal, over or under). A day with nothing logged scores 0. The week is the average. Untracked food or alcohol each take 5 points off this score.</div>
-            <div class="mrow"><span class="mn">Wed 14</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Thu 15</span><span class="md">2 of 3 macros</span><span class="mv">67%</span></div><div class="mrow"><span class="mn">Fri 16</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Sat 17</span><span class="md">2 of 3 macros</span><span class="mv">67%</span></div><div class="mrow"><span class="mn">Mon 19</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Tue 20</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="msum">Average of 6 days <b style="float:right">78%</b></div><div class="mnote">1 refeed day left out of the average. Adjustments: −5 for untracked food; −5 for alcohol.</div>
+            <div class="mrow"><span class="mn">Tue 14</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Wed 15</span><span class="md">2 of 3 macros</span><span class="mv">67%</span></div><div class="mrow"><span class="mn">Thu 16</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Fri 17</span><span class="md">2 of 3 macros</span><span class="mv">67%</span></div><div class="mrow"><span class="mn dim">Sat 18</span><span class="md">nothing logged</span><span class="mv dim">0%</span></div><div class="mrow"><span class="mn">Sun 19</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="mrow"><span class="mn">Mon 20</span><span class="md">3 of 3 macros</span><span class="mv">100%</span></div><div class="msum">Average of 6 days <b style="float:right">78%</b></div><div class="mnote">1 refeed day left out of the average. Adjustments: −5 for untracked food; −5 for alcohol.</div><div class="fiber-note">Your average fiber intake is too low. We want to aim for 20-30grams per day to ensure proper digestion :) you can add in foods like all-bran buds, raspberries, avocado, chia seeds and more!</div>
           </div>
           <div class="mcard">
             <div class="mh"><span class="mt">Training</span><span class="mw">30% of overall</span></div>
@@ -258,43 +257,43 @@
             <img class="ff-img" id="ff-water-img" src="assets/water/shower.png" alt="Approx. one 9 minute shower!" onerror="this.style.display='none';this.nextElementSibling&&(this.nextElementSibling.style.display='flex')"><div class="ff-img-ph" id="ff-water-ph" style="display:none" aria-hidden="true"><span>shower-9min</span></div>
             <div class="ff-copy">
               <div class="ff-liters" id="ff-water-stat"><b id="ff-water-stat-n">70</b> litres</div>
-              <div class="ff-meta" id="ff-water-meta">Since 2025-03-12 · 1:1 Coaching</div>
-              <div class="ff-headline" id="ff-water-headline">You've consumed 70 litres of water since joining the 1:1 Coaching! That's <b class="ff-cmp" id="ff-water-cmp">approx. one 9 minute shower!</b> Talk about staying hydrated!</div>
+              <div class="ff-meta" id="ff-water-meta">Since 2025-03-12 · SHRED</div>
+              <div class="ff-headline" id="ff-water-headline">You've consumed 70 litres of water since joining the SHRED! That's <b class="ff-cmp" id="ff-water-cmp">approx. one 9 minute shower!</b> Talk about staying hydrated!</div>
             </div>
           </div>
         </div>
 <div class="ff-block" id="ff-sleep-block">
           <div class="ff-sub">Lifetime Sleep</div>
           
-          <div class="ff-card ff-card-text">
-            
+          <div class="ff-card">
+            <div class="ff-img-ph" id="ff-sleep-ph" aria-hidden="true"><span>two-months</span></div>
             <div class="ff-copy">
               <div class="ff-liters" id="ff-sleep-stat"><b id="ff-sleep-stat-n">1,274</b> hours</div>
-              <div class="ff-meta" id="ff-sleep-meta">Since 2025-03-12 · 1:1 Coaching</div>
-              <div class="ff-headline" id="ff-sleep-headline">You've accumulated 1,274 hours of sleep since joining the 1:1 Coaching! That's the equivalent of <b class="ff-cmp" id="ff-sleep-cmp">53.1 full days of rest and recovery!</b></div>
+              <div class="ff-meta" id="ff-sleep-meta">Since 2025-03-12 · SHRED</div>
+              <div class="ff-headline" id="ff-sleep-headline">You've accumulated 1,274 hours of sleep since joining the SHRED! That's the equivalent of <b class="ff-cmp" id="ff-sleep-cmp">53.1 full days of rest and recovery!</b></div>
             </div>
           </div>
         </div>
 <div class="ff-block" id="ff-steps-block">
           <div class="ff-sub">Lifetime Steps</div>
           
-          <div class="ff-card ff-card-text">
-            
+          <div class="ff-card">
+            <div class="ff-img-ph" id="ff-steps-ph" aria-hidden="true"><span>marathon</span></div>
             <div class="ff-copy">
               <div class="ff-liters" id="ff-steps-stat"><b id="ff-steps-stat-n">52,400</b> steps</div>
-              <div class="ff-meta" id="ff-steps-meta">Since 2025-03-12 · 1:1 Coaching</div>
-              <div class="ff-headline" id="ff-steps-headline">You've taken 52,400 steps since joining the 1:1 Coaching — about 26.2 miles! That's like <b class="ff-cmp" id="ff-steps-cmp">a full marathon.</b> Keep stacking those steps!</div>
+              <div class="ff-meta" id="ff-steps-meta">Since 2025-03-12 · SHRED</div>
+              <div class="ff-headline" id="ff-steps-headline">You've taken 52,400 steps since joining the SHRED — about 26.2 miles! That's like <b class="ff-cmp" id="ff-steps-cmp">a full marathon.</b> Keep stacking those steps!</div>
             </div>
           </div>
         </div>
 <div class="ff-block" id="ff-weight-block">
           <div class="ff-sub">Lifetime Weight Change</div>
           
-          <div class="ff-card ff-card-text">
-            
+          <div class="ff-card">
+            <div class="ff-img-ph" id="ff-weight-ph" aria-hidden="true"><span>red-fox</span></div>
             <div class="ff-copy">
               <div class="ff-liters" id="ff-weight-stat"><b id="ff-weight-stat-n">15</b> lbs</div>
-              <div class="ff-meta" id="ff-weight-meta">Since 2025-03-12 · 1:1 Coaching</div>
+              <div class="ff-meta" id="ff-weight-meta">Since 2025-03-12 · SHRED</div>
               <div class="ff-headline" id="ff-weight-headline">You've had a 15 lb change on the scale! That's approximately the weight of <b class="ff-cmp" id="ff-weight-cmp">a red fox.</b></div>
             </div>
           </div>
@@ -302,12 +301,12 @@
 <div class="ff-block" id="ff-volume-block">
           <div class="ff-sub">Overall Training Volume</div>
           
-          <div class="ff-card ff-card-text">
-            
+          <div class="ff-card">
+            <div class="ff-img-ph" id="ff-volume-ph" aria-hidden="true"><span>upright-piano</span></div>
             <div class="ff-copy">
               <div class="ff-liters" id="ff-volume-stat"><b id="ff-volume-stat-n">400</b> lbs moved</div>
-              <div class="ff-meta" id="ff-volume-meta">Since 2025-03-12 · 1:1 Coaching</div>
-              <div class="ff-headline" id="ff-volume-headline">You've moved 400 lbs in training volume since joining the 1:1 Coaching! That's <b class="ff-cmp" id="ff-volume-cmp">approximately the weight of an upright piano.</b> What a body of work!</div>
+              <div class="ff-meta" id="ff-volume-meta">Since 2025-03-12 · SHRED</div>
+              <div class="ff-headline" id="ff-volume-headline">You've moved 400 lbs in training volume since joining the SHRED! That's <b class="ff-cmp" id="ff-volume-cmp">approximately the weight of an upright piano.</b> What a body of work!</div>
             </div>
           </div>
         </div>
@@ -315,7 +314,7 @@
 
       <section class="proto">
         <div class="ph2">Protocol for next week</div>
-        <div class="pline">Protein target stays <b>140 g</b></div><div class="pline">Keep Lower B, swap walking lunges → step-ups</div>
+        <div class="pline">Protein target stays <b>140 g</b></div><div class="pline">Keep Lower B, swap walking lunges → step-ups</div><div class="pline">Cardio: 2× Zone 2, 25–30 min</div><div class="pline">Bed by 10:30 on training nights</div>
       </section>
 
       <footer class="endfoot">
@@ -328,7 +327,7 @@
   </table>
 </main>
 
-<script id="water-preview-data" type="application/json">{"comparisons":[{"liters":10,"id":"bucket","label":"A large household bucket filled with water!","image":"water/bucket.png"},{"liters":30,"id":"fish-tank","label":"Amount of water in average large household fish tank!","image":"water/fish-tank.png"},{"liters":50,"id":"washing-cycle","label":"Approx. one washing machine cycle!","image":"water/washing-cycle.png"},{"liters":70,"id":"shower-9min","label":"Approx. one 9 minute shower!","image":"water/shower.png"},{"liters":90,"id":"bathtub-34","label":"¾ of a bathtub full!","image":"water/bathtub.png"},{"liters":110,"id":"kitchen-sinks","label":"Enough to fill 11 large kitchen sinks!","image":"water/kitchen-sinks.png"},{"liters":130,"id":"fridge","label":"The volume of a standard refrigerator!","image":"water/fridge.png"},{"liters":150,"id":"chest-freezer","label":"A large chest freezer’s approx. internal volume!","image":"water/chest-freezer.png"},{"liters":170,"id":"suitcase-laundry","label":"The combined volume of a large suitcase and a laundry basket","image":"water/suitcase-laundry.png"},{"liters":190,"id":"two-suitcases","label":"Approx. 2 large suitcases","image":"water/two-suitcases.png"},{"liters":210,"id":"suitcases-carryon","label":"Two large suitcases plus a carry-on","image":"water/suitcases-carryon.png"},{"liters":230,"id":"three-suitcases","label":"3 Large Suitcases","image":"water/three-suitcases.png"},{"liters":250,"id":"bathtub-microwave","label":"A large bathtub + microwave full","image":"water/bathtub-microwave.png"},{"liters":270,"id":"four-carryons","label":"Four large carry-ons","image":"water/four-carryons.png"},{"liters":290,"id":"washing-machine-ext","label":"External volume of large washing machine","image":"water/washing-machine.png"},{"liters":310,"id":"sofa-3seat","label":"Volume of large 3 seat sofa","image":"water/sofa.png"},{"liters":350,"id":"wardrobe","label":"Approximately the volume of a large freestanding wardrobe!","image":"water/wardrobe.png"},{"liters":370,"id":"piano","label":"Approximately the volume of a standard upright piano!","image":"water/piano.png"},{"liters":390,"id":"double-fridge","label":"Approximately the volume of a standard double-door refrigerator!","image":"water/double-fridge.png"},{"liters":410,"id":"washer-dryer","label":"Approximately the volume of a standard front-loading washing machine and dryer stacked together","image":"water/washer-dryer.png"},{"liters":430,"id":"garden-shed","label":"Approximately the volume of a large garden storage shed!","image":"water/garden-shed.png"},{"liters":450,"id":"three-door-wardrobe","label":"Approximately the volume of a standard three-door wardrobe!","image":"water/three-door-wardrobe.png"},{"liters":470,"id":"dining-set","label":"Approximately the volume of a large dining table with six chairs!","image":"water/dining-set.png"},{"liters":490,"id":"popcorn-machine","label":"Approximately the volume of a large commercial popcorn machine!","image":"water/popcorn-machine.png"},{"liters":510,"id":"hot-tub","label":"Approximately the volume of a large hot tub (small 2-person model)","image":"water/hot-tub.png"},{"liters":530,"id":"kayak","label":"Approximately the volume of a standard 2-person kayak!","image":"water/kayak.png"},{"liters":550,"id":"plunge-pool","label":"Approximately the volume of a small outdoor plunge pool!","image":"water/plunge-pool.png"},{"liters":570,"id":"ice-machine","label":"Approximately the volume of a large commercial ice machine!","image":"water/ice-machine.png"}],"availableImages":["bathtub-microwave.png","bathtub.png","bucket.png","chest-freezer.png","dining-set.png","double-fridge.png","fish-tank.png","four-carryons.png","fridge.png","garden-shed.png","hot-tub.png","ice-machine.png","kayak.png","kitchen-sinks.png","piano.png","plunge-pool.png","popcorn-machine.png","shower.png","sofa.png","suitcase-laundry.png","suitcases-carryon.png","three-door-wardrobe.png","three-suitcases.png","two-suitcases.png","wardrobe.png","washer-dryer.png","washing-cycle.png","washing-machine.png"],"programName":"1:1 Coaching","joinedOn":"2025-03-12"}</script>
+<script id="water-preview-data" type="application/json">{"comparisons":[{"liters":10,"id":"bucket","label":"A large household bucket filled with water!","image":"water/bucket.png"},{"liters":30,"id":"fish-tank","label":"Amount of water in average large household fish tank!","image":"water/fish-tank.png"},{"liters":50,"id":"washing-cycle","label":"Approx. one washing machine cycle!","image":"water/washing-cycle.png"},{"liters":70,"id":"shower-9min","label":"Approx. one 9 minute shower!","image":"water/shower.png"},{"liters":90,"id":"bathtub-34","label":"¾ of a bathtub full!","image":"water/bathtub.png"},{"liters":110,"id":"kitchen-sinks","label":"Enough to fill 11 large kitchen sinks!","image":"water/kitchen-sinks.png"},{"liters":130,"id":"fridge","label":"The volume of a standard refrigerator!","image":"water/fridge.png"},{"liters":150,"id":"chest-freezer","label":"A large chest freezer’s approx. internal volume!","image":"water/chest-freezer.png"},{"liters":170,"id":"suitcase-laundry","label":"The combined volume of a large suitcase and a laundry basket","image":"water/suitcase-laundry.png"},{"liters":190,"id":"two-suitcases","label":"Approx. 2 large suitcases","image":"water/two-suitcases.png"},{"liters":210,"id":"suitcases-carryon","label":"Two large suitcases plus a carry-on","image":"water/suitcases-carryon.png"},{"liters":230,"id":"three-suitcases","label":"3 Large Suitcases","image":"water/three-suitcases.png"},{"liters":250,"id":"bathtub-microwave","label":"A large bathtub + microwave full","image":"water/bathtub-microwave.png"},{"liters":270,"id":"four-carryons","label":"Four large carry-ons","image":"water/four-carryons.png"},{"liters":290,"id":"washing-machine-ext","label":"External volume of large washing machine","image":"water/washing-machine.png"},{"liters":310,"id":"sofa-3seat","label":"Volume of large 3 seat sofa","image":"water/sofa.png"},{"liters":350,"id":"wardrobe","label":"Approximately the volume of a large freestanding wardrobe!","image":"water/wardrobe.png"},{"liters":370,"id":"piano","label":"Approximately the volume of a standard upright piano!","image":"water/piano.png"},{"liters":390,"id":"double-fridge","label":"Approximately the volume of a standard double-door refrigerator!","image":"water/double-fridge.png"},{"liters":410,"id":"washer-dryer","label":"Approximately the volume of a standard front-loading washing machine and dryer stacked together","image":"water/washer-dryer.png"},{"liters":430,"id":"garden-shed","label":"Approximately the volume of a large garden storage shed!","image":"water/garden-shed.png"},{"liters":450,"id":"three-door-wardrobe","label":"Approximately the volume of a standard three-door wardrobe!","image":"water/three-door-wardrobe.png"},{"liters":470,"id":"dining-set","label":"Approximately the volume of a large dining table with six chairs!","image":"water/dining-set.png"},{"liters":490,"id":"popcorn-machine","label":"Approximately the volume of a large commercial popcorn machine!","image":"water/popcorn-machine.png"},{"liters":510,"id":"hot-tub","label":"Approximately the volume of a large hot tub (small 2-person model)","image":"water/hot-tub.png"},{"liters":530,"id":"kayak","label":"Approximately the volume of a standard 2-person kayak!","image":"water/kayak.png"},{"liters":550,"id":"plunge-pool","label":"Approximately the volume of a small outdoor plunge pool!","image":"water/plunge-pool.png"},{"liters":570,"id":"ice-machine","label":"Approximately the volume of a large commercial ice machine!","image":"water/ice-machine.png"}],"availableImages":["water/bathtub-microwave.png","water/bathtub.png","water/bucket.png","water/chest-freezer.png","water/dining-set.png","water/double-fridge.png","water/fish-tank.png","water/four-carryons.png","water/fridge.png","water/garden-shed.png","water/hot-tub.png","water/ice-machine.png","water/kayak.png","water/kitchen-sinks.png","water/piano.png","water/plunge-pool.png","water/popcorn-machine.png","water/shower.png","water/sofa.png","water/suitcase-laundry.png","water/suitcases-carryon.png","water/three-door-wardrobe.png","water/three-suitcases.png","water/two-suitcases.png","water/wardrobe.png","water/washer-dryer.png","water/washing-cycle.png","water/washing-machine.png"],"programName":"SHRED","joinedOn":"2025-03-12"}</script>
 <script>
 (function () {
   var dataEl = document.getElementById('water-preview-data');
@@ -390,12 +389,12 @@
   function apply(liters) {
     var cmp = pick(liters);
     if (!cmp) return;
-    var file = (cmp.image || '').split('/').pop().toLowerCase();
-    var has = !!AVAIL[file];
+    var rel = String(cmp.image || '').replace(/^assets\//, '').toLowerCase();
+    var has = !!AVAIL[rel];
     var img = document.getElementById('ff-water-img');
     var ph = document.getElementById('ff-water-ph');
-    var phLabel = document.getElementById('ff-water-ph-label');
-    var litersN = document.getElementById('ff-water-liters-n');
+    var phLabel = document.getElementById('ff-water-ph-label') || (ph && ph.querySelector('span'));
+    var litersN = document.getElementById('ff-water-liters-n') || document.getElementById('ff-water-stat-n');
     var headline = document.getElementById('ff-water-headline');
     if (litersN) litersN.textContent = formatLiters(liters);
     if (headline) headline.innerHTML = buildHeadlineHtml(liters, cmp);
