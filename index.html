@@ -117,9 +117,11 @@
   .mcard.span2{ grid-column:1 / -1; }
 
   /* 08 Fitness Fun Facts */
-  .ff-block{ margin-top:4px; }
+  .ff-block{ margin-top:18px; break-inside:avoid; }
+  .ff-block:first-of-type{ margin-top:4px; }
   .ff-sub{ font-family:var(--font-display); font-size:14.3px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--brand-deep); margin:4px 0 10px; }
   .ff-card{ display:grid; grid-template-columns:148px 1fr; gap:18px; align-items:center; border:1px solid var(--hairline); border-radius:12px; padding:14px 16px; background:linear-gradient(180deg, var(--tint-aqua), #fff 55%); break-inside:avoid; }
+  .ff-card-text{ grid-template-columns:1fr; background:linear-gradient(180deg, var(--tint-pink), #fff 60%); }
   .ff-img{ width:148px; height:148px; object-fit:contain; object-position:center; border-radius:10px; display:block; background:transparent; }
   .ff-img-ph{ width:148px; height:148px; border-radius:10px; background:var(--tint-pink); border:1px dashed var(--brand-mid); display:flex; align-items:center; justify-content:center; text-align:center; padding:8px; }
   .ff-img-ph span{ font-family:var(--font-display); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--brand-deep); }
@@ -247,17 +249,65 @@
         </div>
       </section>
 
-      <section class="sec" id="ff-water-section">
+      <section class="sec" id="ff-section">
         <div class="shead"><span class="snum">08</span><span class="stit">Fitness Fun Facts (Lifetime Stats)</span></div>
-        <div class="ff-block">
+        <div class="ff-block" id="ff-water-block">
           <div class="ff-sub">Overall Water Intake</div>
           <div class="ff-preview-bar" id="ff-water-preview-bar"><span style="font-family:var(--font-display);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:6px;align-self:center">Preview</span><a href="?water=10l" data-water="10l">10L · bucket</a><a href="?water=30l" data-water="30l">30L · fish-tank</a><a href="?water=50l" data-water="50l">50L · washing-cycle</a><a href="?water=70l" data-water="70l">70L · shower-9min</a><a href="?water=90l" data-water="90l">90L · bathtub-34</a><a href="?water=110l" data-water="110l">110L · kitchen-sinks</a><a href="?water=130l" data-water="130l">130L · fridge</a><a href="?water=150l" data-water="150l">150L · chest-freezer</a><a href="?water=170l" data-water="170l">170L · suitcase-laundry</a><a href="?water=190l" data-water="190l">190L · two-suitcases</a><a href="?water=210l" data-water="210l">210L · suitcases-carryon</a><a href="?water=230l" data-water="230l">230L · three-suitcases</a><a href="?water=250l" data-water="250l">250L · bathtub-microwave</a><a href="?water=270l" data-water="270l">270L · four-carryons</a><a href="?water=290l" data-water="290l">290L · washing-machine-ext</a><a href="?water=310l" data-water="310l">310L · sofa-3seat</a><a href="?water=350l" data-water="350l">350L · wardrobe</a><a href="?water=370l" data-water="370l">370L · piano</a><a href="?water=390l" data-water="390l">390L · double-fridge</a><a href="?water=410l" data-water="410l">410L · washer-dryer</a><a href="?water=430l" data-water="430l">430L · garden-shed</a><a href="?water=450l" data-water="450l">450L · three-door-wardrobe</a><a href="?water=470l" data-water="470l">470L · dining-set</a><a href="?water=490l" data-water="490l">490L · popcorn-machine</a><a href="?water=510l" data-water="510l">510L · hot-tub</a><a href="?water=530l" data-water="530l">530L · kayak</a><a href="?water=550l" data-water="550l">550L · plunge-pool</a><a href="?water=570l" data-water="570l">570L · ice-machine</a></div>
           <div class="ff-card">
-            <img class="ff-img" id="ff-water-img" src="assets/water/shower.png" alt="Approx. one 9 minute shower!" onerror="this.style.display='none';this.nextElementSibling&&(this.nextElementSibling.style.display='flex')"><div class="ff-img-ph" id="ff-water-ph" style="display:none" aria-hidden="true"><span id="ff-water-ph-label">shower-9min</span></div>
+            <img class="ff-img" id="ff-water-img" src="assets/water/shower.png" alt="Approx. one 9 minute shower!" onerror="this.style.display='none';this.nextElementSibling&&(this.nextElementSibling.style.display='flex')"><div class="ff-img-ph" id="ff-water-ph" style="display:none" aria-hidden="true"><span>shower-9min</span></div>
             <div class="ff-copy">
-              <div class="ff-liters" id="ff-water-liters"><b id="ff-water-liters-n">70</b> litres</div>
+              <div class="ff-liters" id="ff-water-stat"><b id="ff-water-stat-n">70</b> litres</div>
               <div class="ff-meta" id="ff-water-meta">Since 2025-03-12 · 1:1 Coaching</div>
               <div class="ff-headline" id="ff-water-headline">You've consumed 70 litres of water since joining the 1:1 Coaching! That's <b class="ff-cmp" id="ff-water-cmp">approx. one 9 minute shower!</b> Talk about staying hydrated!</div>
+            </div>
+          </div>
+        </div>
+<div class="ff-block" id="ff-sleep-block">
+          <div class="ff-sub">Lifetime Sleep</div>
+          
+          <div class="ff-card ff-card-text">
+            
+            <div class="ff-copy">
+              <div class="ff-liters" id="ff-sleep-stat"><b id="ff-sleep-stat-n">1,274</b> hours</div>
+              <div class="ff-meta" id="ff-sleep-meta">Since 2025-03-12 · 1:1 Coaching</div>
+              <div class="ff-headline" id="ff-sleep-headline">You've accumulated 1,274 hours of sleep since joining the 1:1 Coaching! That's the equivalent of <b class="ff-cmp" id="ff-sleep-cmp">53.1 full days of rest and recovery!</b></div>
+            </div>
+          </div>
+        </div>
+<div class="ff-block" id="ff-steps-block">
+          <div class="ff-sub">Lifetime Steps</div>
+          
+          <div class="ff-card ff-card-text">
+            
+            <div class="ff-copy">
+              <div class="ff-liters" id="ff-steps-stat"><b id="ff-steps-stat-n">52,400</b> steps</div>
+              <div class="ff-meta" id="ff-steps-meta">Since 2025-03-12 · 1:1 Coaching</div>
+              <div class="ff-headline" id="ff-steps-headline">You've taken 52,400 steps since joining the 1:1 Coaching — about 26.2 miles! That's like <b class="ff-cmp" id="ff-steps-cmp">a full marathon.</b> Keep stacking those steps!</div>
+            </div>
+          </div>
+        </div>
+<div class="ff-block" id="ff-weight-block">
+          <div class="ff-sub">Lifetime Weight Change</div>
+          
+          <div class="ff-card ff-card-text">
+            
+            <div class="ff-copy">
+              <div class="ff-liters" id="ff-weight-stat"><b id="ff-weight-stat-n">15</b> lbs</div>
+              <div class="ff-meta" id="ff-weight-meta">Since 2025-03-12 · 1:1 Coaching</div>
+              <div class="ff-headline" id="ff-weight-headline">You've had a 15 lb change on the scale! That's approximately the weight of <b class="ff-cmp" id="ff-weight-cmp">a red fox.</b></div>
+            </div>
+          </div>
+        </div>
+<div class="ff-block" id="ff-volume-block">
+          <div class="ff-sub">Overall Training Volume</div>
+          
+          <div class="ff-card ff-card-text">
+            
+            <div class="ff-copy">
+              <div class="ff-liters" id="ff-volume-stat"><b id="ff-volume-stat-n">400</b> lbs moved</div>
+              <div class="ff-meta" id="ff-volume-meta">Since 2025-03-12 · 1:1 Coaching</div>
+              <div class="ff-headline" id="ff-volume-headline">You've moved 400 lbs in training volume since joining the 1:1 Coaching! That's <b class="ff-cmp" id="ff-volume-cmp">approximately the weight of an upright piano.</b> What a body of work!</div>
             </div>
           </div>
         </div>
